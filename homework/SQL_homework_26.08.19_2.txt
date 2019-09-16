@@ -1,0 +1,96 @@
+CREATE TABLE '111'. 'Преподаватели' (
+Номер INT NOT NULL PRIMARY KEY,
+Имя text NOT NULL);
+
+CREATE TABLE '111'. 'Студенты' (
+'Номер' INT NOT NULL PRIMARY KEY,
+'Имя' TEXT NOT NULL,
+'КодПредмета' INT NOT NULL,
+'Оценка' INT);
+
+
+CREATE TABLE `111`.`Предметы` ( 
+`КодПредмета` INT NOT NULL PRIMARY KEY, 
+`НазваниеПредмета` TEXT NOT NULL , 
+`НомерПреподавателя` INT NOT NULL );
+
+INSERT INTO TABLE `111`.`Преподаватели` 
+VALUES (1, 'Fadeev'),
+VALUES (2, 'Sidorov'),
+VALUES (3, 'Ivanov'),
+VALUES (4, 'Petrov'),
+VALUES (5, 'Vasiliev');
+
+
+INSERT INTO `предметы` 
+VALUES (1,'Math', 1), (2,'History', 2), (3,'Geography', 3), (4,'Language', 4), (5,'Biology', 5);
+
+INSERT INTO `студенты`(`Номер`, `Имя`, `КодПредмета`, `Оценка`) 
+VALUES (1, 'Alina', 1, 5), 
+(2, 'Svetlana', 1, 4), 
+(3, 'Katya', 5, 5), 
+(4, 'Lena', 4, 4), 
+(5, 'Nikolay', 3, 2);
+
+SELECT * FROM предметы, преподаватели, студенты;
+
+INSERT INTO `студенты`(`Номер`, `Имя`, `КодПредмета`, `Оценка`) 
+VALUES (6, 'Ira', 3, 4), 
+(7, 'Valya', 3, 5), 
+(8, 'Natasha', 1, 5), 
+(9, 'Igor', 1, 5), 
+(10, 'Alex', 2, 5), 
+(11, 'Vladimir', 1, 5), 
+(12, 'Mihail', 5, 5), 
+(13, 'Maria', 2, 4), 
+(14, 'Olga', 2, 3), 
+(15, 'Irina', 2, 5), 
+(16, 'Georgiy', 1, 1), 
+(17, 'Fedor', 4, 5), 
+(18, 'Semen', 4, 5), 
+(19, 'Evgenia', 3, 5), 
+(20, 'Tatyana', 1, 5);
+
+SELECT `Имя` FROM `студенты`;
+
+ALTER TABLE `студенты` CHANGE `Оценка` `Оценка` INT(11) NULL;
+
+UPDATE `студенты` SET `Оценка`= NULL WHERE `студенты`.'Номер'=1;
+UPDATE `студенты` SET `Оценка` = NULL WHERE `студенты`.`Номер` = 2;
+UPDATE `студенты` SET `Оценка` = NULL WHERE `студенты`.`Номер` = 3;
+UPDATE `студенты` SET `Оценка` = NULL WHERE `студенты`.`Номер` = 4;
+
+SELECT `Имя` FROM `студенты` WHERE `студенты`.`Оценка` IS NULL;
+SELECT `Имя`, `Оценка` FROM `студенты` WHERE `Оценка` IS NULL;
+
+
+ALTER TABLE `студенты` ADD `Возраст` INT NOT NULL AFTER `Оценка`;
+
+UPDATE `студенты` SET `Возраст` = '22' WHERE `студенты`.`Номер` = 1;
+UPDATE `студенты` SET `Возраст` = '23' WHERE `студенты`.`Номер` = 2;
+UPDATE `студенты` SET `Возраст` = '18' WHERE `студенты`.`Номер` = 3;
+UPDATE `студенты` SET `Возраст` = '17' WHERE `студенты`.`Номер` = 4;
+UPDATE `студенты` SET `Возраст` = '18' WHERE `студенты`.`Номер` = 5;
+UPDATE `студенты` SET `Возраст` = '18' WHERE `студенты`.`Номер` = 6;
+UPDATE `студенты` SET `Возраст` = '18' WHERE `студенты`.`Номер` = 7;
+UPDATE `студенты` SET `Возраст` = '17' WHERE `студенты`.`Номер` = 8;
+UPDATE `студенты` SET `Возраст` = '16' WHERE `студенты`.`Номер` = 9;
+UPDATE `студенты` SET `Возраст` = '19' WHERE `студенты`.`Номер` = 10;
+UPDATE `студенты` SET `Возраст` = '18' WHERE `студенты`.`Номер` = 11;
+UPDATE `студенты` SET `Возраст` = '17' WHERE `студенты`.`Номер` = 12;
+UPDATE `студенты` SET `Возраст` = '16' WHERE `студенты`.`Номер` = 13;
+UPDATE `студенты` SET `Возраст` = '19' WHERE `студенты`.`Номер` = 14;
+UPDATE `студенты` SET `Возраст` = '18' WHERE `студенты`.`Номер` = 15;
+UPDATE `студенты` SET `Возраст` = '17' WHERE `студенты`.`Номер` = 16;
+UPDATE `студенты` SET `Возраст` = '16' WHERE `студенты`.`Номер` = 17;
+UPDATE `студенты` SET `Возраст` = '19' WHERE `студенты`.`Номер` = 18;
+UPDATE `студенты` SET `Возраст` = '25' WHERE `студенты`.`Номер` = 19;
+UPDATE `студенты` SET `Возраст` = '30' WHERE `студенты`.`Номер` = 20;
+
+SELECT * FROM `студенты` WHERE `Возраст` BETWEEN 20 AND 100;
+
+SELECT * FROM `студенты` 
+ORDER BY `Возраст`;
+
+SELECT * FROM `студенты` 
+ORDER BY `Возраст` DESC;

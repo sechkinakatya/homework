@@ -1,0 +1,48 @@
+CREATE TABLE `table1` (
+user_id INT NOT NULL PRIMARY KEY,
+user-name text NOT NULL);
+
+INSERT INTO `table1` VALUES (1, 'foo'), (2, 'bar'), (3, 'baz'), (4, 'qux');
+
+CREATE TABLE `table2` (
+phone_id INT NOT NULL PRIMARY KEY,
+user_id INT,
+phone_number INT);
+
+ALTER TABLE table2
+    ADD CONSTRAINT user_id
+    FOREIGN KEY (user_id)
+    REFERENCES table1 (user_id);
+
+INSERT INTO `table2`(`phone_id`, `user_id`, `phone_number`) VALUES (1, 2, 200), (2, 4, 200), (3, 3, 202), (4, 1, 200);
+
+CREATE TABLE `table3` (
+room_id INT NOT NULL PRIMARY KEY,
+phone_id INT NOT NULL,
+room_number INT,
+FOREIGN KEY (phone_id) REFERENCES table2 (phone_id));
+
+INSERT INTO `table3`(`room_id`, `phone_id`, `room_number`) VALUES (1, 4, 30), (2, 1, 32), (3, 2, 35), (4, 3, 50);
+
+ALTER TABLE `table1` CHANGE `user_name` `username` TEXT NOT NULL;
+
+SELECT `username` FROM `table1` 
+ORDER BY `username`;
+
+SELECT `phone_id`, `user_id` FROM `table2`
+WHERE `phone_number`=200
+LIMIT 0, 2;
+
+SELECT `username`FROM `table1` WHERE `user_id`=(SELECT `user_id` FROM `table2` WHERE `phone_number`=202);
+
+SELECT AVG(`room_number`) FROM `table3`;
+
+SELECT `phone_id` FROM `table2` WHERE`phone_number`=(
+SELECT MAX(`phone_number`) FROM `table2`);
+
+SELECT `room_number`FROM `table3` WHERE `phone_id`=
+(SELECT `phone_id` FROM `table2` WHERE `user_id`= 
+(SELECT `user_id` FROM `table1` WHERE `username`='qux'));
+
+SELECT `phone_number`FROM `table2` WHERE `user_id`=
+(SELECT `user_id` FROM `table1` WHERE `username` LIKE 'ba%');

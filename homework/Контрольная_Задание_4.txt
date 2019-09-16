@@ -1,0 +1,36 @@
+﻿<html>
+  <header><title>Задание 4</title></header>
+        <style>
+        h1{color: blue;
+           text-align: center;
+           width: 500px;
+           font-family: times new roman;
+           font-size: 20px;
+           }
+        h2{color: blue;
+           text-align: center;
+           width: 500px;
+           font-family: times new roman;
+           font-size: 16px;
+           }
+        i{color: blue;}
+        p{text-indent: 2em;
+          font-size: 16px;
+          font-family: arial;
+          width: 500px;
+          text-align: justify;
+          }
+        b {color: red;}
+        q {quotes: "\00ab" "\00bb";}
+        </style>
+   </head>
+    <body>
+      <h1>Что такое CMS</h1>
+      <p> <b>CMS</b> - <q>система управления контентом</q> (<b>движок</b>) - написанная PHP-программистами основа для сайта, с помощью которой вы сможете управлять сайтом (добавлять контент, менять пункты и меню и т.п.) не зная HTML и CSS</p>
+      <p> Однако для того, чтобы сделать сайт с помощью <b>CMS</b> <i> потребуются услуги </i> и програмиста, и дизайнера, и верстальщика. И капиталовложения </p>
+      <h2> Какие бывают cms</h2>
+      <p> Бывают различные системы управления контентом: для интернет-магазинов, для блогов, для форумов и т.д.</p>
+      <h2> Пример cms</h2>
+      <p> <i> Примеры популярных CMS: </i> Joomla, WordPress (для блогов), PhpBB (для форумов).</p>
+      <p> <b>CMS-ки</b> бывают <i>платные</i> и <i>бесплатные</i>
+   </body>

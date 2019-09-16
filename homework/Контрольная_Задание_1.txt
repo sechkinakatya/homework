@@ -1,0 +1,13 @@
+﻿<html>
+  <header><title>Задание 1</title></header>
+<body>
+<form>
+<p><input type="text" placeholder="Плейсхолдер"></p>
+<p><input type="value" value="Value"></p>
+<p><input type="text" disabled="disabled" placeholder="disabled"></input></p>
+<p><input type="password" placeholder="Pasword"></p>
+<p><textarea placeholder="Введите текст"></textarea></p>
+<p><input type="submit" value="Кнопка через тег input"></p>
+<p><button>Кнопка через тег button</button></p>
+</form>
+</body>
